@@ -65,22 +65,6 @@ describe 'As a user I want to navigate' do
     end
   end
 
-  describe 'from index go to form for new student' do
-    it 'links user to the correct form' do
-      student = Student.create!(name: 'Keller')
-
-      visit students_path
-
-      click_on "Edit #{student.name}"
-
-      fill_in 'student[name]', with: 'Bob Hoskins'
-      click_on 'Update Student'
-
-      expect(page).to_not have_content(student.name)
-      expect(page).to have_content('Bob Hoskins')
-    end
-  end
-
   describe 'from show page go to form for new student' do
     it 'links user to the correct form' do
       student = Student.create!(name: 'Keller')
@@ -115,7 +99,7 @@ describe 'As a user I want to navigate' do
     it 'links user to the correct form' do
       student = Student.create!(name: 'Keller')
 
-      visit edit_student_path(student)
+      visit students_path
 
       click_on 'Create Student'
 
