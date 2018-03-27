@@ -6,6 +6,7 @@ describe 'User can create student' do
       visit new_student_path
 
       fill_in 'student[name]', with: 'Ace High'
+      click_on 'Create Student'
 
       expect(page).to have_content('Ace High')
     end
