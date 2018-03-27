@@ -1,5 +1,13 @@
 <p> <%= @student.name %> </p>
 
+<%= @student.addresses.each do |address| %>
+  <%= address.description %>
+  <%= address.street %>
+  <%= address.city %>
+  <%= address.state %>
+  <%= address.zip %>
+<% end %>
+
 <%= link_to 'Edit Student', edit_student_path %>
 <%= link_to 'Create Student', new_student_path %>
 <%= link_to 'All Students', students_path %>
