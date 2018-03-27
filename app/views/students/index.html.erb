@@ -1,3 +1,6 @@
 <%= @students.each do |student| %>
-  <p><%= student.name %></p>
+  <p>
+    <%= student.name %>
+    <%= link_to "Edit #{student.name}", edit_student_path(student) %>
+  </p>
 <% end %>
