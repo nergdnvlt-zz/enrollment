@@ -80,4 +80,49 @@ describe 'As a user I want to navigate' do
       expect(page).to have_content('Bob Hoskins')
     end
   end
+
+  describe 'from show page go to form for new student' do
+    it 'links user to the correct form' do
+      student = Student.create!(name: 'Keller')
+
+      visit student_path(student)
+
+      click_on 'Create Student'
+
+      fill_in 'student[name]', with: 'Bob Hoskins'
+      click_on 'Create Student'
+
+      expect(page).to have_content('Bob Hoskins')
+    end
+  end
+
+  describe 'from edit page go to form for new student' do
+    it 'links user to the correct form' do
+      student = Student.create!(name: 'Keller')
+
+      visit edit_student_path(student)
+
+      click_on 'Create Student'
+
+      fill_in 'student[name]', with: 'Bob Hoskins'
+      click_on 'Create Student'
+
+      expect(page).to have_content('Bob Hoskins')
+    end
+  end
+
+  describe 'from index page go to form for new student' do
+    it 'links user to the correct form' do
+      student = Student.create!(name: 'Keller')
+
+      visit edit_student_path(student)
+
+      click_on 'Create Student'
+
+      fill_in 'student[name]', with: 'Bob Hoskins'
+      click_on 'Create Student'
+
+      expect(page).to have_content('Bob Hoskins')
+    end
+  end
 end
