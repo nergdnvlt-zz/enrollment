@@ -5,7 +5,7 @@ describe 'User visits students_path' do
     it 'has all students on the page' do
       student = Student.create!(name: 'Keller')
       student2 = Student.create!(name: 'Oliver Kaid')
-      student2 = Student.create!(name: 'Iago Bishop')
+      student3 = Student.create!(name: 'Iago Bishop')
 
       visit students_path
 
