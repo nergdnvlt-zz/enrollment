@@ -16,4 +16,20 @@ describe 'As a user I want to navigate' do
       expect(page).to have_content(student3.name)
     end
   end
+
+  describe 'to the form to create new student' do
+    it 'from student page links user to new' do
+      student = Student.create!(name: 'Keller')
+
+      visit student_path(student)
+
+      click_on 'Edit Student'
+
+      fill_in 'student[name]', with: 'Bob Hoskins'
+      click_on 'Update Student'
+
+      expect(page).to_not have_content(student.name)
+      expect(page).to have_content('Bob Hoskins')
+    end
+  end
 end
