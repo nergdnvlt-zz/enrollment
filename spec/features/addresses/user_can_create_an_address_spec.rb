@@ -5,7 +5,7 @@ describe 'User can create address' do
     it 'sucessfully adds address to student' do
       student = Student.create!(name: 'Odin')
 
-      visit new_student_address_path(student)
+      visit "/students/#{student.id}/addresses/new"
 
       fill_in 'address[description]', with: 'Valhalla'
       fill_in 'address[street]', with: 'Old Way'
